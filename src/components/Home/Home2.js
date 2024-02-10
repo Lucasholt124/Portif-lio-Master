@@ -18,7 +18,7 @@ function Home2() {
             DEIXE-ME  <span className="purple"> APRESENTAR - ME </span> 
             </h1>
             <p className="home-about-body">
-            Me apaixonei por programação e pelo menos aprendi alguma coisa, eu acho… 🤷‍♂️
+            Me apaixonei por programação
               <br />
               <br />Sou fluente em clássicos como
               <i>
