@@ -96,7 +96,7 @@ function NavBar() {
 
             <Nav.Item className="fork-btn">
               <Button
-                href="https://github.com/Lucasholt124/Portif-leomaster.git"
+                href="https://github.com/Lucasholt124/Portif-lio-Master"
                 target="_blank"
                 className="fork-btn-inner"
               >
