@@ -18,7 +18,7 @@ function Home2() {
             DEIXE-ME  <span className="purple"> APRESENTAR - ME </span> 
             </h1>
             <p className="home-about-body">
-            Me apaixonei por programação Front-End
+            Me indentifico com a programação Front-End
               <br />
               <br />Sou fluente em clássicos como
               <i>
@@ -36,7 +36,7 @@ function Home2() {
               </i>
               <br />
               <br />
-              Sempre que possível aplico também minha paixão pelo desenvolvimento de produtos
+              Sempre que possível aplico também minhas habilidades pelo desenvolvimento de produtos
                com <b className="purple">React</b> e
               <i>
                 <b className="purple">
