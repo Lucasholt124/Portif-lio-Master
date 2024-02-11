@@ -11,9 +11,9 @@ function AboutCard() {
           Olá a todos, eu sou<span className="purple"> Lucas Aragão </span>
             de <span className="purple"> Sergipe, Brasil.</span>
             <br />
-            Atualmente sou desenvolvedor de software no Brasil
+            Atualmente sou desenvolvedor de software no Brasil.
             <br />
-            Faço faculdade na Estácio De Sã, atualmente no 3 Período em Analise e desenvolvimento de sietemas(ADS)
+            Faço faculdade na Estácio De Sá, atualmente no 3 Período em Analise e desenvolvimento de sietemas(ADS)
             <br />
             <br />
              Além disso, algumas outras atividades que adoro fazer!
@@ -23,7 +23,7 @@ function AboutCard() {
               <ImPointRight /> Pentester
             </li>
             <li className="about-activity">
-              <ImPointRight /> Jogar jogos nas horas vagas
+              <ImPointRight /> Jogar nas horas vagas
             </li>
           </ul>
 
