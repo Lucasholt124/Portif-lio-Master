@@ -26,7 +26,7 @@ function Projects() {
               imgPath={calculadora}
               isBlog={false}
               title="Calculadora"
-              description="calculadora simples com Design inovador, #calculadoranaweb, fiquem a vontade para explorar todos os meus projetos e funcionalidades, Desenvolvida com Html5, Css3 e JavaScript."
+              description="Calculadora simples com Design inovador, #calculadoranaweb, fiquem a vontade para explorar todos os meus projetos e funcionalidades, Desenvolvida com Html5, Css3 e JavaScript."
               ghLink="https://github.com/Lucasholt124/Calculadora"
               demoLink="https://calculadora-587dac.netlify.app/"
             />
@@ -36,8 +36,8 @@ function Projects() {
             <ProjectCard
               imgPath={agenciadigital}
               isBlog={false}
-              title="agência-digital"
-              description="Minha Agência pessoal, desenvolvida e atualizada apenas ulizando Html5, Css3 e javaScript."
+              title="Agência-digital"
+              description="Minha Agência pessoal, desenvolvida e atualizada apenas utilizando Html5, Css3 e javaScript."
               ghLink="https://github.com/Lucasholt124/Projeto"
               demoLink="https://minhaagencia-cffaa8.netlify.app/"
             />
@@ -47,7 +47,7 @@ function Projects() {
             <ProjectCard
               imgPath={portifolio}
               isBlog={false}
-              title="portfólio"
+              title="Portfólio"
               description="Meu antigo Portifólio falando algumas curiosidades sobre meus projetos e a mim, Desenvolvido com Html e Css"
               ghLink="https://github.com/Lucasholt124/Portifolio"
               demoLink="https://meuportifolio-96499c.netlify.app/"              
