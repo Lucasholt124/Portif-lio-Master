@@ -26,7 +26,7 @@ function Home2() {
               </i>
               <br />
               <br />
-              Minha área de interesse é construir novos &nbsp;
+              Minha área de interesse é construir novas &nbsp;
               <i>
                 <b className="purple">Tecnologias e produtos da Web </b> e
                  também em áreas relacionadas{" "}
@@ -36,12 +36,12 @@ function Home2() {
               </i>
               <br />
               <br />
-              Sempre que possível aplico também minhas habilidades pelo desenvolvimento de produtos
-               com <b className="purple">React</b> e
+              Sempre que possível, aplico também minhas habilidades pelo desenvolvimento de produtos
+               com <b className="purple">React, </b> e
               <i>
                 <b className="purple">
                   {" "}
-                  Biblioteca e estruturas Javascript modernas
+                  Biblioteca e estruturas Javascript modernas, 
                 </b>
               </i>
               &nbsp; como
@@ -60,7 +60,7 @@ function Home2() {
           <Col md={12} className="home-about-social">
             <h1>ENCONTRE ME EM</h1>
             <p>
-            Sinta-se livre para <span className="purple">conectar </span>Comigo
+            Sinta-se livre para <span className="purple">conectar-(se) </span>comigo
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
