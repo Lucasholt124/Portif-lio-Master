@@ -4,7 +4,7 @@
 Desenvolvido e feito por mim
 
 
-## Autores
+## Autor
 
 - [@Lucas Aragão](https://www.linkedin.com/in/lucas-arag%C3%A3o-a608822a6/)
 
