@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c2053fd4.css",
+    "main.js": "/static/js/main.63c216a0.js",
+    "static/media/Curriculo-Lucas-Aragão-Atualização.pdf": "/static/media/Curriculo-Lucas-Aragão-Atualização.f8f89ff38c3751b950e2.pdf",
+    "static/media/ImagemSite.png": "/static/media/ImagemSite.099bd02a63a3a84ec63c.png",
+    "static/media/ImagemSite1.png": "/static/media/ImagemSite1.89d86d79f1a088d30159.png",
+    "static/media/WhatsApp Image 2024-02-09 at 12.31.24.jpeg": "/static/media/WhatsApp Image 2024-02-09 at 12.31.24.088ee44ef4b420c57f7d.jpeg",
+    "static/media/home-main.svg": "/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
+    "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
+    "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/pre.svg": "/static/media/pre.4410c5baaa673cc131da.svg",
+    "index.html": "/index.html",
+    "main.c2053fd4.css.map": "/static/css/main.c2053fd4.css.map",
+    "main.63c216a0.js.map": "/static/js/main.63c216a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2053fd4.css",
+    "static/js/main.63c216a0.js"
+  ]
+}
