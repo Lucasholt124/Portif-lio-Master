@@ -44,14 +44,15 @@ function ResumeNew() {
         </Button>
       </Row>
 
-      <div className="d-flex justify-content-center" style={{ overflowX: "auto" }}>
-        <Document file={pdf}>
+      <div className="d-flex justify-content-center px-2" style={{ overflowX: "auto" }}>
+        <Document file={pdf} loading={<p>Carregando currículo...</p>}>
           <Page pageNumber={1} scale={getScale()} />
         </Document>
       </div>
 
       <Row className="justify-content-center mt-4">
         <Button
+          aria-label="Download do Currículo"
           variant="primary"
           href={pdf}
           target="_blank"
