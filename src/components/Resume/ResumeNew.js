@@ -1,30 +1,26 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import pdf from "../../Assets/Curriculo-Lucas-Aragão-Atualização.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [iframeHeight, setIframeHeight] = useState("800px");
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setWindowWidth(width);
+      setIframeHeight(width < 768 ? "600px" : "800px");
+    };
+
+    handleResize(); // chama uma vez no início
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // Escala dinâmica baseada no tamanho da tela
-  const getScale = () => {
-    if (windowWidth > 1024) return 1.2;
-    if (windowWidth > 768) return 1;
-    if (windowWidth > 500) return 0.8;
-    return 0.6;
-  };
 
   return (
     <Container data-aos="flip-down" fluid className="resume-section text-center">
@@ -32,7 +28,6 @@ function ResumeNew() {
 
       <Row data-aos="flip-down" className="justify-content-center mb-4">
         <Button
-          data-aos="flip-down"
           variant="primary"
           href={pdf}
           target="_blank"
@@ -45,9 +40,13 @@ function ResumeNew() {
       </Row>
 
       <div className="d-flex justify-content-center px-2" style={{ overflowX: "auto" }}>
-        <Document file={pdf} loading={<p>Carregando currículo...</p>}>
-          <Page pageNumber={1} scale={getScale()} />
-        </Document>
+        <iframe
+          src={pdf}
+          title="Currículo"
+          width="100%"
+          height={iframeHeight}
+          style={{ border: "none", maxWidth: "1000px" }}
+        />
       </div>
 
       <Row className="justify-content-center mt-4">
