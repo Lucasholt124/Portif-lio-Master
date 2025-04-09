@@ -7,33 +7,33 @@ import Type from "./Type";
 
 function Home() {
   return (
-    <section>
-      <Container fluid className="home-section" id="home">
+    <section id="home">
+      <Container data-aos="fade-right" fluid className="home-section">
         <Particle />
         <Container className="home-content">
-          <Row>
+          <Row className="align-items-center">
             <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
+              <h1 className="heading mb-3">
                 Olá!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
+                <span data-aos="fade-right" className="wave" role="img" aria-label="wave">
                   👋🏻
                 </span>
               </h1>
 
-              <h1 className="heading-name">
-                Eu sou
-                <strong className="main-name"> Lucas Aragão</strong>
+              <h1 data-aos="fade-right" className="heading-name">
+                Eu sou <strong className="main-name">Lucas Aragão</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div data-aos="fade-right" style={{ paddingTop: 30, textAlign: "left" }}>
                 <Type />
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
+            <Col md={5} className="text-center">
               <img
+                data-aos="fade-right"
                 src={homeLogo}
-                alt="home pic"
+                alt="Desenvolvedor Front-End"
                 className="img-fluid"
                 style={{ maxHeight: "450px" }}
               />
@@ -41,6 +41,7 @@ function Home() {
           </Row>
         </Container>
       </Container>
+
       <Home2 />
     </section>
   );

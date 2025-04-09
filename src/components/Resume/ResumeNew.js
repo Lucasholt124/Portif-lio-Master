@@ -2,55 +2,67 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/Doc1.pdf";
+import pdf from "../../Assets/Curriculo-Lucas-Aragão-Atualização.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Escala dinâmica baseada no tamanho da tela
+  const getScale = () => {
+    if (windowWidth > 1024) return 1.2;
+    if (windowWidth > 768) return 1;
+    if (windowWidth > 500) return 0.8;
+    return 0.6;
+  };
+
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
+    <Container data-aos="flip-down" fluid className="resume-section text-center">
+      <Particle />
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+      <Row data-aos="flip-down" className="justify-content-center mb-4">
+        <Button
+          data-aos="flip-down"
+          variant="primary"
+          href={pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ maxWidth: "250px" }}
+        >
+          <AiOutlineDownload />
+          &nbsp;Download CV
+        </Button>
+      </Row>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-      </Container>
-    </div>
+      <div className="d-flex justify-content-center" style={{ overflowX: "auto" }}>
+        <Document file={pdf}>
+          <Page pageNumber={1} scale={getScale()} />
+        </Document>
+      </div>
+
+      <Row className="justify-content-center mt-4">
+        <Button
+          variant="primary"
+          href={pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ maxWidth: "250px" }}
+        >
+          <AiOutlineDownload />
+          &nbsp;Download CV
+        </Button>
+      </Row>
+    </Container>
   );
 }
 

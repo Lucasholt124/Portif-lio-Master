@@ -4,33 +4,34 @@ import { ImPointRight } from "react-icons/im";
 
 function AboutCard() {
   return (
-    <Card className="quote-card-view">
+    <Card data-aos="fade-up-right" className="quote-card-view">
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p style={{ textAlign: "justify" }}>
-          Olá a todos, eu sou<span className="purple"> Lucas Aragão </span>
-            de <span className="purple"> Sergipe, Brasil.</span>
+          <p data-aos="fade-up-right" style={{ textAlign: "justify" }}>
+            Olá a todos! Eu sou <span className="purple">Lucas Aragão</span>, de{" "}
+            <span className="purple">Ribeirópolis-SE, Brasil</span>.
             <br />
             Atualmente sou desenvolvedor de software no Brasil.
             <br />
-            Faço faculdade na Estácio De Sá, atualmente no 3 Período em Analise e desenvolvimento de sietemas(ADS)
+            Cursando <b>Análise e Desenvolvimento de Sistemas (ADS)</b> na Estácio de Sá,
+            atualmente no 5º período.
             <br />
             <br />
-             Além disso, algumas outras atividades que adoro fazer!
+            Além da programação, algumas atividades que adoro fazer:
           </p>
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Pentester
+              <ImPointRight /> Estudar
             </li>
             <li className="about-activity">
               <ImPointRight /> Jogar nas horas vagas
             </li>
           </ul>
 
-          <p style={{ color: "rgb(155 126 172)" }}>
-            "Você não precisa ser o mais forte e nem o mais genial, apenas precisa ter disciplina!"{" "}
+          <p data-aos="fade-up-right" style={{ color: "rgb(155 126 172)" }}>
+            "Você não precisa ser o mais forte nem o mais genial, apenas precisa ter disciplina!"
           </p>
-          <footer className="blockquote-footer">Lucas Aragão</footer>
+          <footer data-aos="fade-up-right" className="blockquote-footer">Lucas Aragão</footer>
         </blockquote>
       </Card.Body>
     </Card>

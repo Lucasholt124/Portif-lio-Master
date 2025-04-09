@@ -1,10 +1,31 @@
-.App {
-  text-align: center;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Fonte e fundo geral */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* App container */
+.App {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Logo animado */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  filter: drop-shadow(0 0 10px #61dafb);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,26 +34,186 @@
   }
 }
 
+/* Cabeçalho estilizado */
 .App-header {
-  background-color: #282c34;
+  background: rgba(0, 0, 0, 0.6);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 4rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
+/* Links personalizados */
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
+.App-link:hover {
+  color: #21a1f1;
+}
+
+/* Animação do logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Projetos em grid */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+/* Card de projeto */
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(192, 132, 245, 0.15);
+}
+
+/* Imagens nos cards */
+.project-card img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Botão principal */
+.btn-main {
+  background: linear-gradient(to right, #c084f5, #934cce);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #b37dee, #7f3fbd);
+}
+
+/* Calendário GitHub */
+.react-activity-calendar {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #1a1a2e;
+  box-shadow: 0 0 15px rgba(192, 132, 245, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.react-activity-calendar text {
+  fill: #aaa !important;
+  font-size: 0.75rem !important;
+}
+
+.react-activity-calendar rect {
+  rx: 5px !important;
+  ry: 5px !important;
+  stroke: #2a2a3b;
+  transition: transform 0.2s ease;
+}
+
+.react-activity-calendar rect:hover {
+  transform: scale(1.3);
+  stroke: #c084f5;
+  stroke-width: 1;
+  cursor: pointer;
+}
+
+/* Tooltip personalizada */
+.react-activity-calendar__tooltip {
+  background: #2e2a3f !important;
+  color: #fff !important;
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+  font-size: 0.85rem !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Legenda do calendário */
+.contrib-legend {
+  display: none !important;
+}
+
+.github-calendar-legend {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+.github-calendar-legend .calendar-color-box {
+  width: 12px;
+  height: 12px;
+  background-color: #e5d6f5;
+  border-radius: 2px;
+}
+
+.github-calendar-legend .calendar-color-box.mid {
+  background-color: #c084f5;
+}
+
+.github-calendar-legend .calendar-color-box.high {
+  background-color: #934cce;
+}
+
+/* Responsividade extra */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 2rem 1rem;
+  }
+
+  .App-logo {
+    height: 30vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .btn-main {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .projects-container {
+    grid-template-columns: 1fr;
   }
 }

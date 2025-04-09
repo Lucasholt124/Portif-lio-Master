@@ -2,85 +2,41 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import spotify from "../../Assets/Projects/Captura de Tela (12).png";
-import chatbatepapo from "../../Assets/Projects/Captura de Tela (14).png";
-import portifolio from "../../Assets/Projects/Captura de Tela (11).png";
-import calculadora from "../../Assets/Projects/Captura de Tela (9).png";
-import applewhatch from "../../Assets/Projects/Captura de Tela (15).png";
-import agenciadigital from "../../Assets/Projects/Captura de Tela (10).png";
+import ImagemSite from "../../Assets/Projects/ImagemSite.png";
+import ImagemSite1 from "../../Assets/Projects/ImagemSite1.png";
 
 function Projects() {
   return (
-    <Container fluid className="project-section">
+    <Container data-aos="fade-down-right" fluid className="project-section">
       <Particle />
       <Container>
-        <h1 className="project-heading">
-        Como <strong className="purple">Funciona </strong>
+        <h1 data-aos="fade-down-right" className="project-heading">
+          Como <strong className="purple">Funciona</strong>
         </h1>
-        <p style={{ color: "white" }}>
-        Aqui estão alguns projetos em que trabalhei recentemente.
+        <p style={{ color: "white", marginBottom: "40px" }}>
+          Aqui estão dois sistemas completos de E-commerce que desenvolvi. Clique para explorar detalhes.
         </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
+
+        <Row className="justify-content-center g-4">
+          <Col md={6} lg={4} className="project-card" data-aos="zoom-out-down">
             <ProjectCard
-              imgPath={calculadora}
-              isBlog={false}
-              title="Calculadora"
-              description="Calculadora simples com Design inovador, #calculadoranaweb, fiquem a vontade para explorar todos os meus projetos e funcionalidades, Desenvolvida com Html5, Css3 e JavaScript."
-              ghLink="https://github.com/Lucasholt124/Calculadora"
-              demoLink="https://calculadora-587dac.netlify.app/"
+              data-aos="fade-down-right"
+              imgPath={ImagemSite}
+              title="E-Commerce de Peças de Caminhão"
+              description="Feito com Next.js 15, React 19, Tailwind, Prisma, PostgreSQL, Sanity e Asaas (PIX, cartão, boleto)."
+              ghLink="https://github.com/Lucasholt124/meu-sass"
+              demoLink="https://meu-sass.vercel.app/"
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col md={6} lg={4} className="project-card" data-aos="zoom-out-down">
             <ProjectCard
-              imgPath={agenciadigital}
-              isBlog={false}
-              title="Agência-digital"
-              description="Minha Agência pessoal, desenvolvida e atualizada apenas utilizando Html5, Css3 e javaScript."
-              ghLink="https://github.com/Lucasholt124/Projeto"
-              demoLink="https://minhaagencia-cffaa8.netlify.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={portifolio}
-              isBlog={false}
-              title="Portfólio"
-              description="Meu antigo Portifólio falando algumas curiosidades sobre meus projetos e a mim, Desenvolvido com Html e Css"
-              ghLink="https://github.com/Lucasholt124/Portifolio"
-              demoLink="https://meuportifolio-96499c.netlify.app/"              
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={spotify}
-              isBlog={false}
-              title="Spotify"
-              description="Copia do Front do Spotify real, desenvolvido com o html css e javascript."
-              ghLink="https://github.com/Lucasholt124/Spotify" 
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={applewhatch}
-              isBlog={false}
-              title="Apple-Whatch"
-              description="Copia Front da página Apple-Whatch, deselvonvido com html css e javascript."
-              ghLink="https://github.com/Lucasholt124/Apple-Whatch"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={chatbatepapo}
-              isBlog={false}
-              title="Chat-Bate-Papo"
-              description="Chat-Bate-Papo online desenvoldido por mim, utilizando as tecnologias Html, Css ReactJS, NodeJs "
-              ghLink="https://github.com/Lucasholt124/Chat-Bate-Papo"
+              data-aos="fade-down-right"
+              imgPath={ImagemSite1}
+              title="Loja Virtual de Autopeças"
+              description="Loja responsiva com Next.js, Tailwind, Sanity CMS e integração com pagamentos via Asaas."
+              ghLink="https://github.com/Lucasholt124/Loja"
+              demoLink="https://loja-ashen-omega.vercel.app/"
             />
           </Col>
         </Row>

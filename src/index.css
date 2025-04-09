@@ -1,8 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+/* Reset base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", serif !important;
+  font-family: "Raleway", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Containers */
+.container {
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+/* Buttons */
+.btn-custom {
+  background: #6c63ff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background: #574fd6;
+  transform: scale(1.05);
+}
+
+/* Cards */
+.card-custom {
+  background-color: #2d234b;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-8px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
 }

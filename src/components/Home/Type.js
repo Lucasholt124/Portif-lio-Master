@@ -4,12 +4,13 @@ import Typewriter from "typewriter-effect";
 function Type() {
   return (
     <Typewriter
+      data-aos="fade-down-right"
       options={{
         strings: [
-          "Software Developer",
+          "Desenvolvedor de software",
           "Freelancer",
-          "Front-End Developer",
-          "Open Source Contributor",
+          " Desenvolvedor FullStack",
+          "Contribuidor de código aberto",
         ],
         autoStart: true,
         loop: true,

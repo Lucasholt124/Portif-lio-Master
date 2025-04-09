@@ -1,40 +1,73 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
+import { Card, Button } from "react-bootstrap";
 
-function ProjectCards(props) {
+function ProjectCard({ imgPath, title, description, ghLink, demoLink }) {
   return (
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
+    <Card data-aos="fade-down-right" className="project-card-view shadow-sm border-0 rounded-4">
+      <a
+        href={demoLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="d-block"
+        style={{ borderRadius: "12px", overflow: "hidden" }}
+      >
+        <div
+          data-aos="fade-down-right"
+          style={{
+            width: "100%",
+            height: "200px",
+            backgroundColor: "#f8f9fa",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "10px",
+          }}
+        >
+          <img
+            src={imgPath}
+            alt={`Preview de ${title}`}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+      </a>
+
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
+        <Card.Title className="fw-semibold fs-5 mb-2 text-center">{title}</Card.Title>
+        <Card.Text style={{ textAlign: "justify", fontSize: "0.95rem" }}>
+          {description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
 
-        {/* Se o componente contiver link de demonstração e não for um blog, ele renderizará o componente abaixo  */}
-
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
-        )}
+        <div className="d-flex justify-content-center gap-3 mt-3">
+          {ghLink && (
+            <Button
+              variant="outline-primary"
+              href={ghLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="sm"
+            >
+              GitHub
+            </Button>
+          )}
+          {demoLink && (
+            <Button
+              variant="outline-success"
+              href={demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="sm"
+            >
+              Ver Site
+            </Button>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );
 }
-export default ProjectCards;
+
+export default ProjectCard;

@@ -1,52 +1,64 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { CgCPlusPlus } from "react-icons/cg";
 import {
   DiJavascript1,
   DiReact,
   DiNodejs,
-  DiPython,
   DiGit,
 } from "react-icons/di";
 import {
   SiNextdotjs,
-  SiSolidity,
   SiPostgresql,
+  SiTailwindcss,
+  SiMongodb,
+  SiNpm,
+  SiPrisma,
+  SiSanity,
+  SiStripe,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
+import { FaUserShield } from "react-icons/fa"; // Representando o Clerk
 
 function Techstack() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
-      </Col>
+    <Row  data-aos="flip-left" style={{ justifyContent: "center", paddingBottom: "50px" }}>
       <Col xs={4} md={2} className="tech-icons">
         <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <TbBrandGolang />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <DiReact />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
         <SiNextdotjs />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
+        <SiTailwindcss />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiPrisma />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiPostgresql />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
+        <SiMongodb />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <DiNodejs />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiSanity />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiStripe />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <FaUserShield /> {/* Representa autenticação com Clerk */}
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <DiGit />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiNpm />
       </Col>
     </Row>
   );
