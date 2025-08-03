@@ -4,88 +4,87 @@ import myImg from "../../Assets/Projects/WhatsApp Image 2024-02-09 at 12.31.24.j
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import styles from "./About.module.css"; // 1. Importando o CSS Module
 
-function Home2() {
+function About() { // 2. Nome do componente alterado para 'About'
   return (
-    <Container data-aos="fade-right" fluid className="home-about-section" id="about">
+    <Container fluid className={styles.aboutSection} id="about">
       <Container>
         <Row>
-          <Col data-aos="fade-right" md={8} className="home-about-description">
-            <h1 data-aos="fade-right" style={{ fontSize: "2.6em" }}>
+          {/* 3. Animação aplicada somente na coluna principal */}
+          <Col md={8} className={styles.aboutDescription} data-aos="fade-right">
+            {/* 4. Título agora é um h2 e usa classe CSS */}
+            <h2 className={styles.heading}>
               DEIXE-ME <span className="purple">APRESENTAR-ME</span>
-            </h1>
-            <p className="home-about-body">
-              Me identifico com a programação <b className="purple">Front-End</b>.
+            </h2>
+            <p className={styles.aboutBody}>
+              Sou um entusiasta da programação, com um foco especial em <strong className="purple">Front-End</strong>.
               <br />
               <br />
-              Sou fluente nos clássicos como{" "}
-              <i>
-                <b className="purple">HTML, CSS e JavaScript</b>
-              </i>.
+              Domino as tecnologias fundamentais da web, como{" "}
+              <em>
+                <strong className="purple">HTML, CSS e JavaScript</strong>
+              </em>.
               <br />
               <br />
-              Minha área de interesse está na construção de{" "}
-              <i>
-                <b className="purple">tecnologias e produtos web</b>
-              </i>, bem como em áreas relacionadas à{" "}
-              <b className="purple">Marketing Digital</b>.
+              Meu interesse principal é construir novas <strong className="purple">tecnologias e produtos para a web</strong>,
+              combinando desenvolvimento com conceitos de <strong className="purple">Marketing Digital</strong>.
               <br />
               <br />
-              Sempre que possível, aplico também minhas habilidades no desenvolvimento de produtos com{" "}
-              <b data-aos="fade-right" className="purple">NextJS</b> e outras{" "}
-              <i>
-                <b data-aos="fade-right" className="purple">bibliotecas e estruturas modernas de JavaScript</b>
-              </i>, como{" "}
-              <i>
-                <b data-aos="fade-right" className="purple">React.js e Next.js</b>
-              </i>.
+              Para isso, utilizo <strong className="purple">React.js</strong> e seu ecossistema, incluindo frameworks como{" "}
+              <strong className="purple">Next.js</strong>, para criar aplicações modernas e performáticas.
             </p>
           </Col>
 
-          <Col md={4} className="myAvtar">
+          {/* 5. Animação aplicada somente na coluna da imagem */}
+          <Col md={4} className="myAvtar" data-aos="fade-left">
             <Tilt>
-              <img data-aos="fade-right" src={myImg} className="img-fluid rounded-4" alt="avatar" />
+              <img
+                src={myImg}
+                className={`img-fluid ${styles.profilePic}`}
+                alt="Minha foto de perfil - Lucas Aragão" // 6. Alt text mais descritivo
+              />
             </Tilt>
           </Col>
         </Row>
 
         <Row>
-          <Col data-aos="fade-right" md={12} className="home-about-social">
-            <h1 data-aos="fade-right">ENCONTRE-ME EM</h1>
-            <p data-aos="fade-right">
-              Sinta-se livre para <span className="purple">conectar-se</span> comigo
+          {/* 7. Animação aplicada somente na coluna das redes sociais */}
+          <Col md={12} className={styles.socialSection} data-aos="fade-up">
+            <h2>ENCONTRE-ME EM</h2>
+            <p>
+              Sinta-se à vontade para se <span className="purple">conectar</span> comigo
             </p>
-            <ul data-aos="fade-right" className="home-about-social-links">
-              <li data-aos="fade-right" className="social-icons">
+            <ul className={styles.socialLinks}>
+              <li className={styles.socialIcons}>
                 <a
-                 data-aos="fade-right"
                   href="https://github.com/Lucasholt124"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour home-social-icons"
+                  className="icon-colour"
+                  aria-label="Meu perfil no Github" // 8. Acessibilidade
                 >
                   <AiFillGithub />
                 </a>
               </li>
-
-              <li data-aos="fade-right" className="social-icons">
+              <li className={styles.socialIcons}>
                 <a
                   href="https://www.linkedin.com/in/lucas-arag%C3%A3o-a608822a6/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour home-social-icons"
+                  className="icon-colour"
+                  aria-label="Meu perfil no LinkedIn" // 8. Acessibilidade
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
-
-              <li data-aos="fade-right" className="social-icons">
+              <li className={styles.socialIcons}>
                 <a
-                 data-aos="fade-right"
                   href="https://www.instagram.com/lucas_aragaotm/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour home-social-icons"
+                  className="icon-colour"
+                  aria-label="Meu perfil no Instagram" // 8. Acessibilidade
                 >
                   <AiFillInstagram />
                 </a>
@@ -98,4 +97,4 @@ function Home2() {
   );
 }
 
-export default Home2;
+export default About; // 9. Exportando o novo nome do componente

@@ -25,7 +25,7 @@ function Projects() {
               title="E-Commerce de Peças de Caminhão"
               description="Feito com Next.js 15, React 19, Tailwind, Prisma, PostgreSQL, Sanity e Asaas (PIX, cartão, boleto)."
               ghLink="https://github.com/Lucasholt124/meu-sass"
-              demoLink="https://meu-sass.vercel.app/"
+              demoLink="https://www.jvpecaseacessorios.com.br/"
             />
           </Col>
 

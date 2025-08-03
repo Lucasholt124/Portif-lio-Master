@@ -1,116 +1,74 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { fetchGitHubContributions } from "../../../src/services/github"; // Importa o serviço
+import styles from "./CustomGitHubCalendar.module.css"; // Importa o CSS
 
-const fetchGitHubContributions = async (token) => {
-  const query = `
-    query {
-      viewer {
-        contributionsCollection {
-          contributionCalendar {
-            weeks {
-              contributionDays {
-                date
-                contributionCount
-                color
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
+// Componente para o estado de Carregamento
+function LoadingSpinner() {
+  return <div className={styles.loadingSpinner}>Carregando contribuições...</div>;
+}
 
-  const response = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query }),
-  });
-
-  const { data } = await response.json();
-
-  if (
-    !data?.viewer?.contributionsCollection?.contributionCalendar?.weeks
-  ) {
-    console.error("Erro ao buscar dados do GitHub:", data);
-    return [];
-  }
-
-  return data.viewer.contributionsCollection.contributionCalendar.weeks;
-};
+// Componente para o estado de Erro
+function ErrorMessage({ message }) {
+  return <div className={styles.errorMessage}>Ops! {message}</div>;
+}
 
 function CustomGitHubCalendar() {
+  // 1. Estados para UI: loading, error e data
   const [weeks, setWeeks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = process.env.REACT_APP_GITHUB_TOKEN;
-    if (!token) {
-      console.error("Token do GitHub não encontrado. Defina REACT_APP_GITHUB_TOKEN no .env.");
-      return;
-    }
-
     const fetchData = async () => {
-      const weeksData = await fetchGitHubContributions(token);
-      setWeeks(weeksData);
+      try {
+        const weeksData = await fetchGitHubContributions();
+        setWeeks(weeksData);
+      } catch (err) {
+        setError(err.message || "Não foi possível carregar os dados.");
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
   }, []);
 
+  const renderContent = () => {
+    if (loading) {
+      return <LoadingSpinner />;
+    }
+    if (error) {
+      return <ErrorMessage message={error} />;
+    }
+    return (
+      <div className={styles.calendarGrid}>
+        {weeks.map((week, i) => (
+          <div key={i} className={styles.weekColumn}>
+            {week.contributionDays.map((day, j) => (
+              <div
+                key={j}
+                title={`${day.date}: ${day.contributionCount} contribuições`}
+                className={styles.daySquare}
+                style={{ backgroundColor: day.color || "#161b22" }} // Cor de fundo padrão do GitHub
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <Container data-aos="fade-up" className="text-center my-5">
       <Row className="justify-content-center">
         <Col lg={10}>
-          <h1 className="project-heading mb-4">
+          {/* 2. Semântica: h1 -> h2 */}
+          <h2 className="project-heading mb-4">
             Dias que <strong className="purple">codifiquei</strong>
-          </h1>
-          <div
-            className="calendar-grid"
-            style={{
-              display: "flex",
-              gap: "6px",
-              overflowX: "auto",
-              justifyContent: "center",
-              padding: "16px",
-              borderRadius: "12px",
-              background: "rgba(255,255,255,0.03)",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            {weeks.map((week, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "6px",
-                }}
-              >
-                {week.contributionDays.map((day, j) => (
-                  <div
-                    key={j}
-                    title={`${day.date}: ${day.contributionCount} commits`}
-                    style={{
-                      width: 16,
-                      height: 16,
-                      backgroundColor: day.color || "#ebedf0",
-                      borderRadius: "4px",
-                      transition: "transform 0.2s ease, background-color 0.2s ease",
-                      cursor: "pointer",
-                      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.15)",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.2)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
-                  />
-                ))}
-              </div>
-            ))}
+          </h2>
+          <div className={styles.calendarContainer}>
+            {renderContent()}
           </div>
         </Col>
       </Row>

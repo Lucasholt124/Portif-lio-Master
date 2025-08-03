@@ -1,0 +1,75 @@
+/* AboutCard.module.css - VERSÃO PROFISSIONAL */
+
+/*
+  1. Definindo as cores do componente como variáveis locais.
+  Isso centraliza a configuração de cores e facilita a manutenção (Princípio DRY).
+*/
+:root {
+  --card-quote-color: rgb(155 126 172);
+  /* Usando a variável acima para criar uma versão com transparência */
+  --card-quote-author-color: rgba(155, 126, 172, 0.8);
+}
+
+.card {
+  /*
+    2. Aumentando a especificidade para evitar o uso de !important.
+    Assumindo que o Card no JSX tem a classe 'quote-card-view' do Bootstrap.
+    Se o seu card não tiver essa classe, você pode adicionar uma classe própria.
+  */
+  &.quote-card-view {
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
+}
+
+.cardBody {
+  padding: 1rem 0;
+}
+
+.introText {
+  text-align: justify;
+  font-size: 1.1rem; /* Um pouco maior para melhor legibilidade */
+}
+
+.activityList {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.25rem;  /* 20px -> 1.25rem */
+  margin-bottom: 1.875rem; /* 30px -> 1.875rem */
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px -> 0.625rem */
+  margin-bottom: 0.5rem; /* 8px -> 0.5rem */
+  transition: color 0.2s ease-in-out; /* 4. Adiciona interatividade */
+}
+
+.activityItem:hover {
+  color: var(--imp-text-color); /* Muda para a cor de destaque no hover */
+}
+
+.quoteFigure {
+  margin-top: 1.25rem;
+  padding-left: 1rem; /* 16px -> 1rem */
+  border-left: 3px solid var(--imp-text-color);
+  font-style: italic;
+  transition: border-color 0.2s ease-in-out; /* 4. Adiciona interatividade */
+}
+
+.quoteFigure:hover {
+  border-left-color: white; /* Exemplo de efeito de hover */
+}
+
+.quoteText {
+  color: var(--card-quote-color); /* 3. Usando a variável de cor */
+  margin-bottom: 0.5rem;
+}
+
+.quoteAuthor {
+  color: var(--card-quote-author-color); /* 3. Usando a variável de cor */
+  text-align: right;
+  font-weight: 500;
+}

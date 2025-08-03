@@ -1,38 +1,41 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import styles from "./AboutCard.module.css"; // 1. Importando o CSS Module
+
 
 function AboutCard() {
   return (
-    <Card data-aos="fade-up-right" className="quote-card-view">
-      <Card.Body>
-        <blockquote className="blockquote mb-0">
-          <p data-aos="fade-up-right" style={{ textAlign: "justify" }}>
-            Olá a todos! Eu sou <span className="purple">Lucas Aragão</span>, de{" "}
-            <span className="purple">Ribeirópolis-SE, Brasil</span>.
-            <br />
-            Atualmente sou desenvolvedor de software no Brasil.
-            <br />
-            Cursando <b>Análise e Desenvolvimento de Sistemas (ADS)</b> na Estácio de Sá,
-            atualmente no 5º período.
-            <br />
-            <br />
-            Além da programação, algumas atividades que adoro fazer:
-          </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Estudar
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Jogar nas horas vagas
-            </li>
-          </ul>
+    <Card className={styles.card}>
+      <Card.Body className={styles.cardBody}>
+        <p className={styles.introText}>
+          Olá! Sou <span className="purple">Lucas Aragão</span>, um desenvolvedor criativo de{" "}
+          <span className="purple">Ribeirópolis-SE, Brasil</span>.
+          Minha missão é transformar ideias em realidade através de código limpo e funcional.
+          <br />
+          Como <strong className="purple">freelancer</strong>, tenho a liberdade de me associar a projetos inovadores e entregar valor diretamente aos meus parceiros.
+          <br />
+          Recentemente, concluí minha graduação em <b>Análise e Desenvolvimento de Sistemas (ADS)</b>, consolidando a base técnica que aplico todos os dias.
+          <br />
+          <br />
+          Além do código, minhas paixões incluem:
+        </p>
 
-          <p data-aos="fade-up-right" style={{ color: "rgb(155 126 172)" }}>
-            "Você não precisa ser o mais forte nem o mais genial, apenas precisa ter disciplina!"
-          </p>
-          <footer data-aos="fade-up-right" className="blockquote-footer">Lucas Aragão</footer>
-        </blockquote>
+        <ul className={styles.activityList}>
+          <li className={styles.activityItem}>
+            <ImPointRight aria-hidden="true" /> Mergulhar em ecossistemas de novas tecnologias
+          </li>
+          <li className={styles.activityItem}>
+            <ImPointRight aria-hidden="true" /> Expandir meus horizontes através da leitura
+          </li>
+        </ul>
+
+        <figure className={styles.quoteFigure}>
+          <blockquote className={styles.quoteText}>
+            <p>"Você não precisa ser o mais forte nem o mais genial, apenas precisa ter disciplina!"</p>
+          </blockquote>
+          <figcaption className={styles.quoteAuthor}>— Lucas Aragão</figcaption>
+        </figure>
       </Card.Body>
     </Card>
   );
