@@ -1,0 +1,53 @@
+/* Resume.module.css */
+
+.resumeSection {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.downloadBtn {
+  max-width: 250px;
+  /* Estilos do botão que você tinha antes, se houver */
+}
+
+.pdfViewerContainer {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem; /* Adiciona um respiro nas laterais */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pdfViewer {
+  border: none;
+  max-width: 1000px;
+  width: 100%;
+  height: 800px; /* Altura padrão para telas grandes */
+  box-shadow: 0 5px 20px rgba(199, 112, 240, 0.1);
+}
+
+/* A MÁGICA DA EXPERIÊNCIA MÓVEL */
+/* Para telas com largura de até 767px */
+@media (max-width: 767.98px) {
+  .pdfViewerContainer {
+    display: none; /* Esconde completamente o iframe no celular */
+  }
+  .pdfViewer {
+    height: 600px; /* Ajusta a altura se decidir mostrar */
+  }
+}
+
+/* Mensagem que só aparece no celular */
+.mobileMessage {
+  display: none; /* Escondida por padrão */
+  color: white;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+@media (max-width: 767.98px) {
+  .mobileMessage {
+    display: block; /* Mostra a mensagem no celular */
+  }
+}

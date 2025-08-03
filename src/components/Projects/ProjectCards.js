@@ -1,65 +1,79 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
+import styles from "./ProjectCard.module.css";
+
+// --- O COMPONENTE WRAPPER PODE SER REMOVIDO OU MANTIDO, POIS A LÓGICA SERÁ DIFERENTE ---
+// Vou manter a simplicidade por enquanto, adicionando o link direto na imagem.
+
+// Um componente para exibir enquanto a imagem real carrega
+const ImageLoader = () => (
+  <div className={styles.imagePlaceholder}>
+    Carregando prévia do site...
+  </div>
+);
 
 function ProjectCard({ imgPath, title, description, ghLink, demoLink }) {
+  // 1. A URL da imagem será construída dinamicamente.
+  // Se houver um demoLink, criamos a URL da nossa API.
+  // Se não, usamos o imgPath como fallback.
+  const dynamicImgSrc = demoLink
+    ? `/api/screenshot?url=${encodeURIComponent(demoLink)}`
+    : imgPath;
+
   return (
-    <Card data-aos="fade-down-right" className="project-card-view shadow-sm border-0 rounded-4">
+    <Card className={styles.projectCard}>
+      {/* 2. O contêiner da imagem agora é um link se demoLink existir */}
       <a
-        href={demoLink}
+        href={demoLink || ghLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="d-block"
-        style={{ borderRadius: "12px", overflow: "hidden" }}
+        className={styles.imageLink} // Adicionamos uma classe para o link
       >
-        <div
-          data-aos="fade-down-right"
-          style={{
-            width: "100%",
-            height: "200px",
-            backgroundColor: "#f8f9fa",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "10px",
-          }}
-        >
-          <img
-            src={imgPath}
-            alt={`Preview de ${title}`}
-            style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              objectFit: "contain",
-            }}
-          />
+        <div className={styles.cardImageContainer}>
+          {/*
+            3. A mágica acontece aqui.
+            Usamos a URL dinâmica. A tag <img> é inteligente, se a fonte
+            for uma API que redireciona para uma imagem, ela funciona.
+          */}
+          {dynamicImgSrc ? (
+            <img
+              src={dynamicImgSrc}
+              alt={`Prévia do projeto ${title}`}
+              className={styles.cardImage}
+              // Opcional: Adiciona um efeito de fade-in quando a imagem carrega
+              onLoad={(e) => (e.currentTarget.style.opacity = 1)}
+            />
+          ) : (
+            // Exibe um placeholder se não houver nem demoLink nem imgPath
+            <div className={styles.noImageAvailable}>Sem prévia disponível</div>
+          )}
         </div>
       </a>
 
       <Card.Body>
         <Card.Title className="fw-semibold fs-5 mb-2 text-center">{title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify", fontSize: "0.95rem" }}>
+        <Card.Text className={styles.cardText}>
           {description}
         </Card.Text>
 
-        <div className="d-flex justify-content-center gap-3 mt-3">
+        <div className={styles.buttonGroup}>
           {ghLink && (
             <Button
-              variant="outline-primary"
+              className={styles.btn}
               href={ghLink}
               target="_blank"
-              rel="noopener noreferrer"
-              size="sm"
+              aria-label={`Ver o código do projeto ${title} no GitHub`}
             >
               GitHub
             </Button>
           )}
           {demoLink && (
             <Button
-              variant="outline-success"
+              className={styles.btn}
               href={demoLink}
               target="_blank"
-              rel="noopener noreferrer"
-              size="sm"
+              aria-label={`Ver a demonstração ao vivo do projeto ${title}`}
             >
               Ver Site
             </Button>
@@ -69,5 +83,20 @@ function ProjectCard({ imgPath, title, description, ghLink, demoLink }) {
     </Card>
   );
 }
+
+// 4. Atualizando os PropTypes. imgPath agora é opcional.
+ProjectCard.propTypes = {
+  imgPath: PropTypes.string, // Não é mais obrigatório
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  ghLink: PropTypes.string,
+  demoLink: PropTypes.string,
+};
+
+ProjectCard.defaultProps = {
+  ghLink: null,
+  demoLink: null,
+  imgPath: null, // Valor padrão nulo
+};
 
 export default ProjectCard;

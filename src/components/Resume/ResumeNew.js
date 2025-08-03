@@ -1,69 +1,62 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import pdf from "../../Assets/Curriculo-Lucas-Aragão-Atualização.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
+import styles from "./Resume.module.css"; // Importando o CSS Module
 
-function ResumeNew() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [iframeHeight, setIframeHeight] = useState("800px");
+// 1. Componente de botão reutilizável para seguir o princípio DRY
+function DownloadCVButton() {
+  return (
+    <Row className="justify-content-center my-4">
+      <Button
+        variant="primary"
+        href={pdf}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.downloadBtn}
+        aria-label="Fazer download do meu currículo em PDF"
+      >
+        <AiOutlineDownload />
+        &nbsp;Download CV
+      </Button>
+    </Row>
+  );
+}
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setWindowWidth(width);
-      setIframeHeight(width < 768 ? "600px" : "800px");
-    };
-
-    handleResize(); // chama uma vez no início
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+function Resume() {
+  // 2. Lógica de responsividade removida do JS. O CSS cuida disso agora.
+  // O código fica muito mais limpo e sem a necessidade de 'useState' e 'useEffect'.
 
   return (
-    <Container data-aos="flip-down" fluid className="resume-section text-center">
+    <Container fluid className={styles.resumeSection} data-aos="fade-up">
       <Particle />
 
-      <Row data-aos="flip-down" className="justify-content-center mb-4">
-        <Button
-          variant="primary"
-          href={pdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ maxWidth: "250px" }}
-        >
-          <AiOutlineDownload />
-          &nbsp;Download CV
-        </Button>
-      </Row>
+      {/* 3. Componente de botão reutilizado */}
+      <DownloadCVButton />
 
-      <div className="d-flex justify-content-center px-2" style={{ overflowX: "auto" }}>
+      {/* 4. Mensagem específica para mobile, controlada via CSS */}
+      <p className={styles.mobileMessage}>
+        Para uma melhor visualização, por favor, faça o download do currículo.
+      </p>
+
+      {/*
+        5. O contêiner do iframe agora é controlado por CSS.
+        Ele será automaticamente escondido em telas pequenas.
+      */}
+      <div className={styles.pdfViewerContainer}>
         <iframe
           src={pdf}
-          title="Currículo"
-          width="100%"
-          height={iframeHeight}
-          style={{ border: "none", maxWidth: "1000px" }}
+          title="Visualizador do meu Currículo em PDF"
+          className={styles.pdfViewer}
         />
       </div>
 
-      <Row className="justify-content-center mt-4">
-        <Button
-          aria-label="Download do Currículo"
-          variant="primary"
-          href={pdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ maxWidth: "250px" }}
-        >
-          <AiOutlineDownload />
-          &nbsp;Download CV
-        </Button>
-      </Row>
+      {/* 6. Botão de download no final para facilitar o acesso em telas grandes */}
+      <DownloadCVButton />
     </Container>
   );
 }
 
-export default ResumeNew;
+export default Resume;

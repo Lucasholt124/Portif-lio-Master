@@ -52,7 +52,7 @@ function Techstack() {
         <SiStripe />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <FaUserShield /> {/* Representa autenticação com Clerk */}
+        <FaUserShield />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <DiGit />
